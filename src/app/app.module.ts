@@ -3,16 +3,28 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TareasComponent } from './components/tareas/tareas.component';
+import { AgregarTasksComponent } from './components/agregar-tasks/agregar-tasks.component';
 
+
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { TareasfelicesService } from './services/tareasfelices.service' ;
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TareasComponent,
+    AgregarTasksComponent
   ],
   imports: [
     BrowserModule
+    , AngularFireModule
+    , AngularFirestoreModule
+    , AngularFireModule.initializeApp(environment.firebase,'angular-fs')
   ],
-  providers: [],
+  providers: [ TareasfelicesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

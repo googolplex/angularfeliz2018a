@@ -16,6 +16,8 @@ export class TareasfelicesService {
   tareaFelizDoc: AngularFirestoreDocument<TareaFeliz>;
 
   constructor(public afs:AngularFirestore) {
+    // agregar esta linea para que no se queje de la fecha
+    afs.firestore.settings({timestampsInSnapshots: true}) ;
     // pero la gran flauta, aqui se pone el nombre de la coleccion habia sido
     this.tareasFelicesCollection = this.afs.collection('tareasfelices');
     this.tareasFelicesObservable = this.tareasFelicesCollection.snapshotChanges().map(changes => {

@@ -21,6 +21,7 @@ export class TareasfelicesService {
     // pero la gran flauta, aqui se pone el nombre de la coleccion habia sido
     
     this.tareasFelicesCollection = this.afs.collection('tareasfelices');
+    // this.tareasFelicesCollection = this.afs.collection('tareasFelicesObservable');
     this.tareasFelicesObservable = this.tareasFelicesCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as TareaFeliz;
@@ -39,12 +40,15 @@ export class TareasfelicesService {
   }
 
   deleteTareaFeliz(tareafeliz: TareaFeliz) {
-    this.tareaFelizDoc = this.afs.doc(`tareasFelicesObservable/${tareafeliz.id}`);
+     // console.log(tareafeliz) ;
+    this.tareaFelizDoc = this.afs.doc(`tareasfelices/${tareafeliz.id}`);
+    
+    console.log(this.tareaFelizDoc);
     this.tareaFelizDoc.delete();
   }
 
   updateTareaFeliz(tareafeliz: TareaFeliz) {
-    this.tareaFelizDoc = this.afs.doc(`tareasFelicesObservable/${tareafeliz.id}`);
+    this.tareaFelizDoc = this.afs.doc(`tareasfelices/${tareafeliz.id}`);
     this.tareaFelizDoc.update(tareafeliz);
   }
 }

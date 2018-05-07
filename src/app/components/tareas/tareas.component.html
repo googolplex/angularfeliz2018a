@@ -1,12 +1,11 @@
 <div *ngIf="tareasFelices?.length > 0;else noTasks">
   <ul *ngFor="let mitarea of tareasFelices" class="collection">
-    <li class="collection-item" (dblclick)="deleteTareaFeliz($event, mitarea)">
-      <strong>Comanda</strong> : {{ mitarea.comandanro }}
-      <br>
+    <li class="collection-item">
+      <!-- <li class="collection-item" (dblclick)="deleteTareaFeliz($event, mitarea)">
+      -->
+      <strong>Comanda</strong> : {{ mitarea.comandanro }} 
       <strong>NroRuc</strong> : {{ mitarea.nroruc }} 
-      <br>
       <strong>MontoTotal</strong> : {{ mitarea.montototal }}       
-      <br>
       <a href="#" class="secondary-content">
         <i (click)="deleteTareaFeliz($event, mitarea)" class="fa fa-trash"></i>
         <i (click)="editTask($event, mitarea)" class="fa fa-pencil"></i>
@@ -15,22 +14,18 @@
         <form (ngSubmit)="updateTask(mitarea)">
           <div class="row">
             <div class="input-field col s6">
-              <input 
-                type="text" name="comandanro"
+              <input type="text" name="comandanro" 
                 placeholder="Edit comandanro" [(ngModel)]="mitarea.comandanro">
-            </div>
-            <div class="input-field col s6">
                 <input 
                   type="text" name="nroruc"
-                  placeholder="Edit nroruc" [(ngModel)]="mitarea.nroruc">
-            </div>
-            <div class="input-field col s6">
+                  placeholder="Edit nroruc" [(ngModel)]="mitarea.nroruc">                
                 <input 
                   type="text" name="montototal"
-                  placeholder="Edit montototal" [(ngModel)]="mitarea.montototal">
-            </div>            
-            <input type="submit" class="btn" value="Update Comanda">
-            <button class="btn red" (click)="deleteTareaFeliz($event, mitarea)">Delete Comanda</button>
+                  placeholder="Edit montototal" [(ngModel)]="mitarea.montototal">                  
+            </div>
+
+            <input type="submit" class="btn" value="Update">
+            <button class="btn red" (click)="deleteTareaFeliz($event, mitarea)">Delete</button>
           </div>
         </form>
       </div>

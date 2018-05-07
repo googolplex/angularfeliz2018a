@@ -21,13 +21,13 @@ export class TareasComponent implements OnInit {
     ngOnInit() {
       this.servicioTarea.getTareasFelices().subscribe(mistareas => {
         this.tareasFelices = mistareas
-        console.log(this.tareasFelices) ;
+        // console.log(this.tareasFelices) ;
          // console.log('hola planeta') ;
       });
     } ; 
 
   deleteTareaFeliz(event, tareafeliz) {
-    const response = confirm('are you sure you want to delete?');
+    const response = confirm('esta seguro que desea borrar?');
     if (response ) {
       this.servicioTarea.deleteTareaFeliz(tareafeliz);
     }

@@ -18,6 +18,7 @@ export class AgregarTasksComponent implements OnInit {
   };  
 
   constructor() { }
+  // nada
 
   ngOnInit() {
   }

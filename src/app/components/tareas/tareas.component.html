@@ -1,3 +1,39 @@
-<p>
-  tareas works!
-</p>
+<div *ngIf="tareasFelices?.length > 0;else noTasks">
+  <ul *ngFor="let mitarea of tareasFelices" class="collection">
+    <li class="collection-item" (dblclick)="deleteTareaFeliz($event, mitarea)">
+      <strong>{{ mitarea.comandanro }}</strong> : {{ mitarea.comandanro }} 
+      <a href="#" class="secondary-content">
+        <i (click)="deleteTareaFeliz($event, mitarea)" class="fa fa-trash"></i>
+        <i (click)="editTask($event, mitarea)" class="fa fa-pencil"></i>
+      </a>
+      <div *ngIf="editState && taskToEdit.id === mitarea.id">
+        <form (ngSubmit)="updateTask(mitarea)">
+          <div class="row">
+            <div class="input-field col s6">
+              <input 
+                type="text" name="comandanro"
+                placeholder="Edit comandanro" [(ngModel)]="mitarea.comandanro">
+            </div>
+            <div class="input-field col s6">
+                <input 
+                  type="text" name="nroruc"
+                  placeholder="Edit nroruc" [(ngModel)]="mitarea.nroruc">
+            </div>
+            <div class="input-field col s6">
+                <input 
+                  type="text" name="montototal"
+                  placeholder="Edit montototal" [(ngModel)]="mitarea.montototal">
+            </div>            
+            <input type="submit" class="btn" value="Update Comanda">
+            <button class="btn red" (click)="deleteTareaFeliz($event, mitarea)">Delete Comanda</button>
+          </div>
+        </form>
+      </div>
+
+    </li>
+  </ul>
+</div>
+
+<ng-template #noTasks>
+  <h5>aun no hay tareas.</h5>
+</ng-template>

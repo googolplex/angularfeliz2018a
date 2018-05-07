@@ -22,6 +22,7 @@ export class TareasComponent implements OnInit {
       this.servicioTarea.getTareasFelices().subscribe(mistareas => {
         this.tareasFelices = mistareas
         console.log(this.tareasFelices) ;
+         // console.log('hola planeta') ;
       });
     } ; 
 

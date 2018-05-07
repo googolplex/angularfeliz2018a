@@ -17,14 +17,15 @@ export class AgregarTasksComponent implements OnInit {
    montototal: 0
   };  
 
-  constructor() { }
+  constructor(private latareaServicio: TareasfelicesService ) { }
   // nada
 
   ngOnInit() {
   }
   onSubmit() {
-    if(this.mitareafeliz.comandanro != 0 && this.mitareafeliz.nroruc != 0 && this.mitareafeliz.montototal != 0 {
-      this.TareasfelicesService.addTareaFeliz(this.mitareafeliz);
+    if(this.mitareafeliz.comandanro != 0 && this.mitareafeliz.nroruc != 0 
+       && this.mitareafeliz.montototal != 0) {
+      this.latareaServicio.addTareaFeliz(this.mitareafeliz);
       this.mitareafeliz.comandanro = 0 ;
       this.mitareafeliz.nroruc = 0;
       this.mitareafeliz.montototal = 0;

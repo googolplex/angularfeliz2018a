@@ -1,7 +1,12 @@
 <div *ngIf="tareasFelices?.length > 0;else noTasks">
   <ul *ngFor="let mitarea of tareasFelices" class="collection">
     <li class="collection-item" (dblclick)="deleteTareaFeliz($event, mitarea)">
-      <strong>{{ mitarea.comandanro }}</strong> : {{ mitarea.comandanro }} 
+      <strong>Comanda</strong> : {{ mitarea.comandanro }}
+      <br>
+      <strong>NroRuc</strong> : {{ mitarea.nroruc }} 
+      <br>
+      <strong>MontoTotal</strong> : {{ mitarea.montototal }}       
+      <br>
       <a href="#" class="secondary-content">
         <i (click)="deleteTareaFeliz($event, mitarea)" class="fa fa-trash"></i>
         <i (click)="editTask($event, mitarea)" class="fa fa-pencil"></i>

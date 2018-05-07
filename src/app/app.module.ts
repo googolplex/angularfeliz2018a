@@ -11,6 +11,8 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { TareasfelicesService } from './services/tareasfelices.service' ;
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { TareasfelicesService } from './services/tareasfelices.service' ;
     BrowserModule
     , AngularFireModule
     , AngularFirestoreModule
-    , AngularFireModule.initializeApp(environment.firebase,'angular-fs')
+    , AngularFireModule.initializeApp(environment.firebase,'angular-fs'),
+    FormsModule
   ],
   providers: [ TareasfelicesService ],
   bootstrap: [AppComponent]
